@@ -10,7 +10,7 @@ import { Translation } from "./components/Translation";
 import { Job } from "./components/Job";
 import { LandscapePhoto } from "./components/LandscapePhoto";
 
-const baseUrl = "https://api-library-backend-ejs.herokuapp.com/";
+const baseUrl = "https://api-library-backend-ejs.herokuapp.com";
 const url = `${baseUrl}/all`;
 const separator = "|";
 
