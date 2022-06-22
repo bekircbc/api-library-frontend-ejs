@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.scss";
 import axios from "axios";
 import { Noun } from "./components/Noun";
@@ -10,8 +10,10 @@ import { Translation } from "./components/Translation";
 import { Job } from "./components/Job";
 import { LandscapePhoto } from "./components/LandscapePhoto";
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 const baseUrl = "https://api-library-backend-ejs.herokuapp.com";
-const url = `${baseUrl}/all`;
+const url = `${backendUrl}/all`;
 const separator = "|";
 
 function App() {
@@ -135,7 +137,7 @@ function App() {
           />
           {filteredSearchItems.map((item, i) => {
             return (
-              <>
+              <React.Fragment key={i}>
                 {item.kind === "noun" && <Noun item={item.item} />}
                 {item.kind === "book" && <Book item={item.item} />}
                 {item.kind === "techPerson" && <TechPerson item={item.item} />}
@@ -149,7 +151,7 @@ function App() {
                 {item.kind === "landscapePhoto" && (
                   <LandscapePhoto item={item.item} baseUrl={baseUrl} />
                 )}
-              </>
+              </React.Fragment>
             );
           })}
         </>
