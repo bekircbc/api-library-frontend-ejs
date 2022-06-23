@@ -12,7 +12,7 @@ import { LandscapePhoto } from "./components/LandscapePhoto";
 
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
-const baseUrl = "https://api-library-backend-ejs.herokuapp.com";
+// const baseUrl = "https://api-library-backend-ejs.herokuapp.com";
 const url = `${backendUrl}/all`;
 const separator = "|";
 
@@ -22,10 +22,10 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      const _siteData = (await axios.get(url)).data;
+      const siteData = (await axios.get(url)).data;
       const _searchItems = [];
 
-      _siteData.nouns.forEach((item) => {
+      siteData.nouns.forEach((item) => {
         _searchItems.push({
           kind: "noun",
           bulkSearch: item.singular,
@@ -33,7 +33,7 @@ function App() {
         });
       });
 
-      _siteData.books.forEach((item) => {
+      siteData.books.forEach((item) => {
         _searchItems.push({
           kind: "book",
           bulkSearch: item.title + separator + item.description,
@@ -41,7 +41,7 @@ function App() {
         });
       });
 
-      _siteData.techPersons.forEach((item) => {
+      siteData.techPersons.forEach((item) => {
         _searchItems.push({
           kind: "techPerson",
           bulkSearch:
@@ -50,7 +50,7 @@ function App() {
         });
       });
 
-      Object.entries(_siteData.settings).forEach((entry) => {
+      Object.entries(siteData.settings).forEach((entry) => {
         const key = entry[0];
         const value = entry[1];
         _searchItems.push({
@@ -63,7 +63,7 @@ function App() {
         });
       });
 
-      _siteData.employees.forEach((item) => {
+      siteData.employees.forEach((item) => {
         _searchItems.push({
           kind: "employee",
           bulkSearch: item.FIRST_NAME + separator + item.LAST_NAME,
@@ -71,7 +71,7 @@ function App() {
         });
       });
 
-      _siteData.translations.forEach((item) => {
+      siteData.translations.forEach((item) => {
         _searchItems.push({
           kind: "translation",
           bulkSearch:
@@ -86,7 +86,7 @@ function App() {
         });
       });
 
-      _siteData.jobs.forEach((item) => {
+      siteData.jobs.forEach((item) => {
         _searchItems.push({
           kind: "job",
           bulkSearch: item.html,
@@ -94,7 +94,7 @@ function App() {
         });
       });
 
-      _siteData.landscapePhotos.forEach((item) => {
+      siteData.landscapePhotos.forEach((item) => {
         _searchItems.push({
           kind: "landscapePhoto",
           bulkSearch: item,
