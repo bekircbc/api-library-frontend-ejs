@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.scss";
 import axios from "axios";
-import { Noun } from "./components/Noun";
+import { Product } from "./components/Product";
 import { Book } from "./components/Book";
 import { TechPerson } from "./components/TechPerson";
 import { Setting } from "./components/Setting";
@@ -25,10 +25,10 @@ function App() {
       const siteData = (await axios.get(url)).data;
       const _searchItems = [];
 
-      siteData.nouns.forEach((item) => {
+      siteData.products.forEach((item) => {
         _searchItems.push({
-          kind: "noun",
-          bulkSearch: item.singular,
+          kind: "product",
+          bulkSearch: item.name,
           item,
         });
       });
@@ -138,7 +138,7 @@ function App() {
           {filteredSearchItems.map((item, i) => {
             return (
               <React.Fragment key={i}>
-                {item.kind === "noun" && <Noun item={item.item} />}
+                {item.kind === "product" && <Product item={item.item} />}
                 {item.kind === "book" && <Book item={item.item} />}
                 {item.kind === "techPerson" && <TechPerson item={item.item} />}
 
