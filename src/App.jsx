@@ -149,7 +149,7 @@ function App() {
                 )}
                 {item.kind === "job" && <Job item={item.item} />}
                 {item.kind === "landscapePhoto" && (
-                  <LandscapePhoto item={item.item} baseUrl={baseUrl} />
+                  <LandscapePhoto item={item.item} backendUrl={backendUrl} />
                 )}
               </React.Fragment>
             );
