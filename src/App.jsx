@@ -22,7 +22,7 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      const siteData = (await axios.get(url)).data;
+      const siteData = await axios.get(url);
       const _searchItems = [];
 
       siteData.products.forEach((item) => {
