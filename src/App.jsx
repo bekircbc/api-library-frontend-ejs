@@ -8,7 +8,7 @@ import { Setting } from "./components/Setting";
 import { Employee } from "./components/Employee";
 import { Translation } from "./components/Translation";
 import { Job } from "./components/Job";
-import { LandscapePhoto } from "./components/LandscapePhoto";
+// import { LandscapePhoto } from "./components/LandscapePhoto";
 
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -94,13 +94,13 @@ function App() {
         });
       });
 
-      siteData.landscapePhotos.forEach((item) => {
-        _searchItems.push({
-          kind: "landscapePhoto",
-          bulkSearch: item,
-          item,
-        });
-      });
+      // siteData.landscapePhotos.forEach((item) => {
+      //   _searchItems.push({
+      //     kind: "landscapePhoto",
+      //     bulkSearch: item,
+      //     item,
+      //   });
+      // });
 
       setSearchItems(_searchItems);
       setFilteredSearchItems([]);
@@ -148,9 +148,9 @@ function App() {
                   <Translation item={item.item} />
                 )}
                 {item.kind === "job" && <Job item={item.item} />}
-                {item.kind === "landscapePhoto" && (
+                {/* {item.kind === "landscapePhoto" && (
                   <LandscapePhoto item={item.item} baseUrl={backendUrl} />
-                )}
+                )} */}
               </React.Fragment>
             );
           })}
