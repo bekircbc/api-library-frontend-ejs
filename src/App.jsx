@@ -12,7 +12,6 @@ import { LandscapePhoto } from "./components/LandscapePhoto";
 
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
-// const baseUrl = "https://api-library-backend-ejs.herokuapp.com";
 const url = `${backendUrl}/all`;
 const separator = "|";
 
