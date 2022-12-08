@@ -123,6 +123,12 @@ function App() {
 
   return (
     <div className="App">
+      <img
+        src="../public/images/apilibrary.png"
+        alt="Logo"
+        width="200"
+        height="200"
+      />
       <h1>Search Info</h1>
       {Object.keys(searchItems).length === 0 ? (
         <div>Loading...</div>
